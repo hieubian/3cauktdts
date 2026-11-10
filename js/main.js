@@ -268,56 +268,42 @@ function startTerminal(){
 // ── TROLL SCHEDULE ──
 function schedulePopups(){
   var pool=[
-    {id:'wDL', t:3000},
-    {id:'wHash',t:7500},
-    {id:'wRad', t:12000},
-    {id:'wTra', t:16000},
-    {id:'wCon', t:20000},
-    {id:'wSat', t:25000},
-    {id:'wEnc', t:30000},
-    {id:'wMap', t:36000},
-    {id:'wRat', t:42000},
-    {id:'wPw',  t:48000},
-    {id:'wNeu', t:55000,siren:true},
-    {id:'wBr',  t:61000,siren:true},
-    {id:'wEv',  t:67000,siren:true},
+    {id:'wDL',  t:2000},
+    {id:'wHash', t:5000},
+    {id:'wRad',  t:9000},
+    {id:'wTra',  t:13000},
+    {id:'wCon',  t:17000},
+    {id:'wSat',  t:20000},
+    {id:'wEnc',  t:23000},
+    {id:'wRat',  t:25000},
+    {id:'wPw',   t:27000},
+    {id:'wNeu',  t:29000,siren:true},
+    {id:'wBr',   t:32000,siren:true},
+    {id:'wEv',   t:34000,siren:true},
   ];
   pool.forEach(function(p){
     setTimeout(function(){
       showWin(document.getElementById(p.id));
-      if(p.siren)A.siren(2500);
-    }, p.t+(Math.random()*1200|0));
+      if(p.siren)A.siren(2200);
+    }, p.t);
   });
 
-  // Intermittent alerts
-  setTimeout(function(){A.denied();showFlash('ad');},10000);
-  setTimeout(function(){A.denied();showFlash('ad');},38000);
-  setTimeout(function(){A.granted();showFlash('ag');},26000);
+  // Intermittent alert flashes
+  setTimeout(function(){A.denied();showFlash('ad');},7000);
+  setTimeout(function(){A.granted();showFlash('ag');},15000);
+  setTimeout(function(){A.denied();showFlash('ad');},24000);
 
-  // Format bomb ~75s
-  setTimeout(startFormat, 75000+(Math.random()*6000|0));
-
-  // Loop light popups after format completes
-  setTimeout(loopPopups, 115000);
+  // Format bomb at 36s -> runs for ~3.5s -> redirects to https://ktdts.hgh.io.vn/
+  setTimeout(startFormat, 36000);
 }
 
-function loopPopups(){
-  var ids=['wDL','wHash','wCon','wTra','wRad','wEnc'];
-  ids.forEach(function(id,i){
-    setTimeout(function(){showWin(document.getElementById(id));},i*9000+(Math.random()*3000|0));
-  });
-  setTimeout(function(){A.denied();showFlash('ad');},18000);
-  setTimeout(function(){A.granted();showFlash('ag');},35000);
-  setTimeout(loopPopups, ids.length*9000+45000);
-}
-
-// ── FORMAT DISK TROLL ──
+// ── FORMAT DISK TROLL & REDIRECT ──
 function startFormat(){
   var fmt=document.getElementById('fmt');
   var fill=document.getElementById('ffill');
   var ftxt=document.getElementById('ftxt');
   var fmsg=document.getElementById('fmsg');
-  fmt.classList.add('on');A.siren(3500);
+  fmt.classList.add('on');A.siren(3200);
   var pct=0;fill.style.width='0%';
   var logs=[
     'C:\\Windows\\System32\\... [XÓA]',
@@ -329,22 +315,20 @@ function startFormat(){
   ];
   var li=0;
   var iv=setInterval(function(){
-    pct+=Math.random()*12+5|0;
+    pct+=Math.random()*14+7|0;
     if(pct>=100){
       pct=100;fill.style.width='100%';clearInterval(iv);
-      fmsg.innerHTML='<span style="color:#0f0;font-size:clamp(13px,3vw,16px)">🤡 BỊ LỪA RỒI! Không có gì bị xóa!<br>NGHĨ HACK ĐƯỢC ÂY? HAHAHA 🤣</span>';
-      ftxt.textContent='';A.stopSiren();A.granted();
+      fmsg.innerHTML='<span style="color:#0f0;font-size:clamp(13px,3vw,16px)">🤡 BỊ LỪA RỒI! Không có gì bị xóa cả!<br>Đang chuyển hướng sang KTDTS... 🚀</span>';
+      ftxt.textContent='Chuyển hướng sau 3 giây...';
+      A.stopSiren();A.granted();
       setTimeout(function(){
-        fmt.classList.remove('on');
-        fill.style.width='0%';
-        fmsg.textContent='Phát hiện xâm nhập. Đang xóa dữ liệu...';
-        ftxt.textContent='';
-      },5000);
+        window.location.href='https://ktdts.hgh.io.vn/';
+      },3200);
       return;
     }
     fill.style.width=pct+'%';
     if(li<logs.length)ftxt.textContent=logs[li++];
-  },260);
+  },240);
 }
 
 })();
