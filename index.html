@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#000000">
+<title>LVH ✦</title>
+<link rel="icon" type="image/png" href="img/terminal.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ── VIEW 1: PHOTO ── -->
+<div id="v1">
+  <div id="stars"></div>
+  <div id="ring"></div>
+  <div id="frame">
+    <img id="photo" src="1.png" alt="" draggable="false" onerror="this.style.display='none'">
+  </div>
+</div>
+
+<!-- ── FLASH ── -->
+<div id="flash"></div>
+
+<!-- ── GLITCH TRANSITION ── -->
+<div id="glitch">
+  <div id="glitch-lines"></div>
+  <div id="glitch-flood"></div>
+  <div id="glitch-box">
+    <h1>⚠ XÂM NHẬP HỆ THỐNG ⚠</h1>
+    <p id="glitch-msg">ĐANG PHÁ MÃ TƯỜNG LỬA...</p>
+    <div id="gbar"><div id="gfill"></div></div>
+  </div>
+</div>
+
+<!-- ── VIEW 2: TERMINAL ── -->
+<div id="v2">
+  <div id="scanlines"></div>
+  <div id="console"><div id="txt"></div><span id="cur"></span></div>
+</div>
+
+<!-- ── POPUP WINDOWS ── -->
+<div class="win" id="wDL">
+  <div class="wh" data-id="wDL"><span class="wt">DOWNLOADING DATA</span><span class="wx" data-id="wDL">✕</span></div>
+  <div class="wb"><h1>Downloading...</h1><img src="img/downloading.gif" alt=""></div>
+</div>
+<div class="win" id="wHash">
+  <div class="wh" data-id="wHash"><span class="wt">PASSWORD DECRYPTOR</span><span class="wx" data-id="wHash">✕</span></div>
+  <div class="wb"><h1>Calculating Hashes</h1><img src="img/hash.gif" alt=""></div>
+</div>
+<div class="win" id="wCon">
+  <div class="wh" data-id="wCon"><span class="wt">COMPILING NODES</span><span class="wx" data-id="wCon">✕</span></div>
+  <div class="wb"><h1>Compiling...</h1><img src="img/console.gif" alt=""></div>
+</div>
+<div class="win" id="wRad">
+  <div class="wh" data-id="wRad"><span class="wt">RADAR SCAN</span><span class="wx" data-id="wRad">✕</span></div>
+  <div class="wb"><img src="img/radar.gif" alt=""></div>
+</div>
+<div class="win" id="wTra">
+  <div class="wh" data-id="wTra"><span class="wt">TRACING LOCATION</span><span class="wx" data-id="wTra">✕</span></div>
+  <div class="wb"><h1>Tracing Contact</h1><img src="img/tracing.gif" alt=""></div>
+</div>
+<div class="win" id="wSat">
+  <div class="wh" data-id="wSat"><span class="wt">SATELLITE UPLINK</span><span class="wx" data-id="wSat">✕</span></div>
+  <div class="wb"><h1>Satellite Uplink</h1><img src="img/satellite.gif" alt=""></div>
+</div>
+<div class="win red" id="wBr">
+  <div class="wh" data-id="wBr"><span class="wt">⚠ SECURITY BREACH</span><span class="wx" data-id="wBr">✕</span></div>
+  <div class="wb"><h1>INTERIOR EXOGEN BREACH</h1><img src="img/breach.gif" alt=""></div>
+</div>
+<div class="win red" id="wEv">
+  <div class="wh" data-id="wEv"><span class="wt">⚠ EVACUATE NOW</span><span class="wx" data-id="wEv">✕</span></div>
+  <div class="wb"><h1>FACILITY BREACHED</h1><img src="img/evacuate.gif" alt=""></div>
+</div>
+<div class="win red" id="wNeu">
+  <div class="wh" data-id="wNeu"><span class="wt">☣ NEUROTOXIN EMITTER</span><span class="wx" data-id="wNeu">✕</span></div>
+  <div class="wb"><h1>Flooding Facility</h1><img src="img/neurotoxin.gif" alt=""></div>
+</div>
+<div class="win" id="wEnc">
+  <div class="wh" data-id="wEnc"><span class="wt">ENCRYPTING FILES</span><span class="wx" data-id="wEnc">✕</span></div>
+  <div class="wb"><h1>Encrypting...</h1><img src="img/encrypting.gif" alt=""></div>
+</div>
+<div class="win" id="wMap">
+  <div class="wh" data-id="wMap"><span class="wt">FACILITY MAP</span><span class="wx" data-id="wMap">✕</span></div>
+  <div class="wb"><img src="img/facilities.gif" alt=""></div>
+</div>
+<div class="win red" id="wPw">
+  <div class="wh" data-id="wPw"><span class="wt">CONFIRM PASSWORD</span><span class="wx" data-id="wPw">✕</span></div>
+  <div class="wb"><h1>Purge Facility?</h1><img src="img/password.gif" alt=""></div>
+</div>
+<div class="win" id="wRat">
+  <div class="wh" data-id="wRat"><span class="wt">TROJAN INFECTION</span><span class="wx" data-id="wRat">✕</span></div>
+  <div class="wb"><img src="img/rat.gif" alt=""></div>
+</div>
+
+<!-- ACCESS ALERTS -->
+<div id="ag"><h1>✔ ACCESS GRANTED</h1></div>
+<div id="ad"><h1>✘ ACCESS DENIED</h1></div>
+
+<!-- FORMAT TROLL -->
+<div id="fmt">
+  <h2>⚠ CẢNH BÁO NGHIÊM TRỌNG ⚠</h2>
+  <p id="fmsg">Phát hiện xâm nhập trái phép.<br>Đang xóa toàn bộ dữ liệu để bảo vệ hệ thống...</p>
+  <div id="fbar"><div id="ffill"></div></div>
+  <p id="ftxt" style="color:#f00;font-size:11px;min-height:16px"></p>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
