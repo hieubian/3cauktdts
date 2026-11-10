@@ -217,8 +217,17 @@ function goGeek(){
   },1500);
 }
 
-// ── PHOTO TRIGGERS ──
+// ── PHOTO TRIGGERS & AUDIO UNLOCK ──
 var v1=document.getElementById('v1');
+function unlockAudio(){
+  A.gc();
+  window.removeEventListener('touchstart',unlockAudio);
+  window.removeEventListener('touchend',unlockAudio);
+  window.removeEventListener('click',unlockAudio);
+}
+window.addEventListener('touchstart',unlockAudio,{passive:true,once:true});
+window.addEventListener('click',unlockAudio,{passive:true,once:true});
+
 // Unified: tap on mobile, click on desktop
 var tapped=false;
 v1.addEventListener('touchend',function(e){
